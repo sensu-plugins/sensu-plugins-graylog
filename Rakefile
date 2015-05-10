@@ -17,7 +17,7 @@ end
 
 YARD::Rake::YardocTask.new do |t|
   OTHER_PATHS = %w()
-  t.files = ['lib/**/*.rb', 'bin/**/*.rb', OTHER_PATHS]
+  t.files = ['lib/**/*.rb', 'bin/*.rb', OTHER_PATHS]
   t.options = %w(--markup-provider=redcarpet --markup=markdown --main=README.md --files CHANGELOG.md)
 end
 
@@ -29,7 +29,7 @@ end
 
 desc 'Make all plugins executable'
 task :make_bin_executable do
-  `chmod -R +x bin/***/*.rb`
+  `chmod -R +x bin/*.rb`
 end
 
 task default: args
