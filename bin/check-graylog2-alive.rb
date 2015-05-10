@@ -83,8 +83,8 @@ class CheckGraylog2Alive < Sensu::Plugin::Check::CLI
     begin
       resource = RestClient::Resource.new "http://#{host}:#{port}/system", username, password
       # Attempt to parse response (just to trigger parse exception)
-      _response = JSON.parse(resource.get)
-      if _response['lifecycle'] == 'running' && _response['is_processing'] && _response['lb_status'] == 'alive'
+      response = JSON.parse(resource.get)
+      if response['lifecycle'] == 'running' && response['is_processing'] && response['lb_status'] == 'alive'
         { 'status' => 'ok', 'message' => 'Graylog2 server is alive' }
       else
         { 'status' => 'critical', 'message' => 'Graylog2 server is online but not processing' }
