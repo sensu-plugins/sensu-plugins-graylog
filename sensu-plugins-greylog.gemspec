@@ -22,11 +22,12 @@ Gem::Specification.new do |s|
   s.homepage               = 'https://github.com/sensu-plugins/sensu-plugins-greylog'
   s.license                = 'MIT'
   s.metadata               = { 'maintainer'         => '',
-                               'development_status' => 'unmaintained',
+                               'development_status' => 'active',
                                'production_status'  => 'unstable - testing recommended',
                                'release_draft'      => 'false',
                                'release_prerelease' => 'false'
-                               }
+                              }
+  s.name                   = 'sensu-plugins-greylog'
   s.platform               = Gem::Platform::RUBY
   s.post_install_message   = 'You can use the embedded Ruby by setting EMBEDDED_RUBY=true in /etc/default/sensu'
   s.require_paths          = ['lib']
@@ -34,6 +35,7 @@ Gem::Specification.new do |s|
   s.signing_key            = File.expand_path(pvt_key) if $PROGRAM_NAME =~ /gem\z/
   s.summary                = 'Sensu plugins for Greylog log management server'
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
+  s.version                = SensuPluginsGreylog::Version::VER_STRING
 
   s.add_runtime_dependency 'sensu-plugin', '1.1.0'
   s.add_runtime_dependency 'rest-client', '1.8.0'
