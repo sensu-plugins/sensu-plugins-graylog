@@ -11,12 +11,6 @@ end
 
 pvt_key = '~/.ssh/gem-private_key.pem'
 
-
-
-  s.add_runtime_dependency 'sensu-plugin', '1.1.0'
-  s.add_runtime_dependency 'rest-client', '1.8.0'
-
-
 Gem::Specification.new do |s|
   s.authors                = ['Sensu-Plugins and contributors']
   s.cert_chain             = ['certs/sensu-plugins.pem']
@@ -43,7 +37,9 @@ Gem::Specification.new do |s|
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsGreylog::Version::VER_STRING
 
-  s.add_runtime_dependency 'sensu-plugin',      '1.1.0'
+  s.add_runtime_dependency 'sensu-plugin',   '1.1.0'
+  s.add_runtime_dependency 'json',           '1.8.3'
+  s.add_runtime_dependency 'rest-client',    '1.8.0'
 
   s.add_development_dependency 'bundler',                   '~> 1.7'
   s.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
