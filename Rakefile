@@ -34,12 +34,12 @@ end
 
 desc 'Retrieve the current version'
 task :version do
-  puts SensuPluginsGreylog::Version.json_version
+  puts SensuPluginsGraylog::Version.json_version
 end
 
 desc 'Bump the PATCH version'
 task :bump do
-  version_file = 'lib/sensu-plugins-greylog/version.rb'
+  version_file = 'lib/sensu-plugins-graylog/version.rb'
 
   # Read the file, bump the PATCH version
   contents = File.read(version_file).gsub(/(PATCH = )(\d+)/) { |_| Regexp.last_match[1] + (Regexp.last_match[2].to_i + 1).to_s }

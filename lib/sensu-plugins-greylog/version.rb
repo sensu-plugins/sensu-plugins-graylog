@@ -1,4 +1,4 @@
-module SensuPluginsGreylog
+module SensuPluginsGraylog
   module Version
     MAJOR = 0
     MINOR = 0

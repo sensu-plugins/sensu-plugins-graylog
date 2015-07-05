@@ -1,1 +1,1 @@
-require 'sensu-plugins-greylog/version'
+require 'sensu-plugins-graylog/version'

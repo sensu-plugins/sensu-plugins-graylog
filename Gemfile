@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in sensu-plugins-greylog.gemspec
+# Specify your gem's dependencies in sensu-plugins-graylog.gemspec
 gemspec
