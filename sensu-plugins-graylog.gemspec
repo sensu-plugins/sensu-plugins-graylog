@@ -38,7 +38,6 @@ Gem::Specification.new do |s|
   s.version                = SensuPluginsGraylog::Version::VER_STRING
 
   s.add_runtime_dependency 'sensu-plugin',   '1.1.0'
-  s.add_runtime_dependency 'json',           '1.8.3'
   s.add_runtime_dependency 'rest-client',    '1.8.0'
 
   s.add_development_dependency 'bundler',                   '~> 1.7'
