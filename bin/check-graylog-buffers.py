@@ -2,9 +2,10 @@ import urllib2
 import json
 import sys
 import getopt
+import socket
 
 def main(argv):
-    host = "localhost"
+    host = socket.getfqdn()
     user = "graylog2"
     password = "mypass"
     port = "12900"
