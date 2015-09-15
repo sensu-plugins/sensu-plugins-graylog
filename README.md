@@ -11,6 +11,8 @@
 
 ## Files
  * bin/check-graylog2-alive.rb
+ * bin/check-graylog-buffers.py
+ * bin/metrics-graylog.py
 
 ## Usage
 

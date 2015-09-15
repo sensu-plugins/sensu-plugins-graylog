@@ -35,8 +35,8 @@ def main(argv):
     pagehandle = urllib2.urlopen('http://'+ host + ':' + port + '/system/metrics')
     data = json.load(pagehandle)
 
-    print '%s.graylog.kafkajournal.uncommittedMessages, %d, %d' % (host, data['gauges']['org.graylog2.shared.journal.KafkaJournal.uncommittedMessages']['value'], int(time.time()))
-    print '%s.graylog.kafkajournal.unflushedMessages, %d, %d' % (host, data['gauges']['org.graylog2.shared.journal.KafkaJournal.unflushedMessages']['value'], int(time.time()))
+    print 'graylog.%s.graylog.kafkajournal.uncommittedMessages %d %d\n' % (host, data['gauges']['org.graylog2.shared.journal.KafkaJournal.uncommittedMessages']['value'], int(time.time()))
+    print 'graylog.%s.graylog.kafkajournal.unflushedMessages %d %d\n' % (host, data['gauges']['org.graylog2.shared.journal.KafkaJournal.unflushedMessages']['value'], int(time.time()))
     sys.exit(0)
 
 if __name__ == "__main__":
