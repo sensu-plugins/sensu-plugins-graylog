@@ -5,7 +5,6 @@
 [![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-graylog/badges/gpa.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-graylog)
 [![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-graylog/badges/coverage.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-graylog)
 [![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-graylog.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-graylog)
-[![Codeship Status for sensu-plugins/sensu-plugins-graylog](https://codeship.com/projects/2bddaba0-ea2b-0132-13b2-32dfa18a9fce/status?branch=master)](https://codeship.com/projects/83052)
 
 ## Functionality
 

@@ -1,19 +1,33 @@
 language: ruby
 cache:
-  - bundler
+- bundler
 install:
-  - bundle install
+- bundle install
 rvm:
-  - 1.9.3
-  - 2.0
-  - 2.1
-  - 2.2
+- 1.9.3
+- 2.0
+- 2.1
+- 2.2
 notifications:
   email:
     recipients:
-      - sensu-plugin@sensu-plugins.io
+    - sensu-plugin@sensu-plugins.io
     on_success: change
     on_failure: always
-
 script:
-  - 'bundle exec rake default'
+- bundle exec rake default
+- gem build sensu-plugins-graylog.gemspec
+- gem install sensu-plugins-graylog-*.gem
+deploy:
+  provider: rubygems
+  api_key:
+    secure: SRB9s9jdQYmG6vAH307Cceczlz+WQVQsaL5swH/PP8JGD0E5+0P93WqAfRXn6M5PAiK+UHCwX7SQLUFHxwcTgs1sNYaQ2LK8GyeITUf5dCtEFimlR6qYr+JR7tOKFwvbfcLCAwt19459GjWAX0E7I5dsUxx1DEaRaaHIvkXyZTA=
+  gem: sensu-plugins-graylog
+  on:
+    tags: true
+    all_branches: true
+    rvm: 1.9.3
+    rvm: 2.0
+    rvm: 2.1
+    rvm: 2.2
+    repo: sensu-plugins/sensu-plugins-graylog
