@@ -7,6 +7,7 @@
 [![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-graylog.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-graylog)
 
 ## Functionality
+This plugin provides availability monitoring and metrics collection for the [Graylog](https://www.graylog.org/) log management system.
 
 ## Files
  * bin/check-graylog2-alive.rb
@@ -20,3 +21,6 @@
 [Installation and Setup](http://sensu-plugins.io/docs/installation_instructions.html)
 
 ## Notes
+- If you want a limited access user for monitoring purposes please see the [Graylog FAQ](http://docs.graylog.org/en/latest/pages/faq.html#how-can-i-create-a-restricted-user-to-check-internal-graylog-metrics-in-my-monitoring-system+)
+- Users may further obfuscate their credentials by creating an [Access Token](http://docs.graylog.org/en/latest/pages/configuration/rest_api.html?highlight=access%20tokens#creating-and-using-access-token) to use instead of their normal login credentials.
+  - Note that only an admin may create a token by default.  If you want to have a dedicated monitoring user with an access token you will need to create them as a Admin user, create the token, then change the user to the monitoring specific role. You can change the default behavior by granting `users:tokencreate`, `users:tokenlist`, and `users:tokenremove` to a role and adding that role to the monitoring user.

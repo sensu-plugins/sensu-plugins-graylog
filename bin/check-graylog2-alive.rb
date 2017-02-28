@@ -57,10 +57,16 @@ class CheckGraylog2Alive < Sensu::Plugin::Check::CLI
          required: true
 
   option :port,
-         description: 'RabbitMQ API port',
+         description: 'Graylog API port',
          short: '-P',
          long: '--port PORT',
          default: '12900'
+
+  option :apipath,
+         description: 'Graylog API path prefix',
+         short: '-a',
+         long: '--apipath /api',
+         default: ''
 
   def run
     res = vhost_alive?
@@ -79,15 +85,19 @@ class CheckGraylog2Alive < Sensu::Plugin::Check::CLI
     port     = config[:port]
     username = config[:username]
     password = config[:password]
+    apipath  = config[:apipath]
+
+    lifecycle_ok = ['override lb:alive', 'running']
 
     begin
-      resource = RestClient::Resource.new "http://#{host}:#{port}/system", username, password
+      resource = RestClient::Resource.new "http://#{host}:#{port}#{apipath}/system", username, password
       # Attempt to parse response (just to trigger parse exception)
       response = JSON.parse(resource.get)
-      if response['lifecycle'] == 'running' && response['is_processing'] && response['lb_status'] == 'alive'
-        { 'status' => 'ok', 'message' => 'Graylog2 server is alive' }
+      status_text = "#{response['lifecycle']}/#{response['is_processing']}/#{response['lb_status']}"
+      if lifecycle_ok.include?(response['lifecycle']) && response['is_processing'] && response['lb_status'] == 'alive'
+        { 'status' => 'ok', 'message' => "Graylog2 server is: #{status_text}" }
       else
-        { 'status' => 'critical', 'message' => 'Graylog2 server is online but not processing' }
+        { 'status' => 'critical', 'message' => "Graylog2 server is responding but not healthy: #{status_text}" }
       end
     rescue Errno::ECONNREFUSED => e
       { 'status' => 'critical', 'message' => e.message }
