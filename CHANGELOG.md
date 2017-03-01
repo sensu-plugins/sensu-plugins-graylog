@@ -8,7 +8,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 - update check-graylog2-alive.rb to accept an `--apipath` argument to specify the path of the transport api
 - update -alive lifecycle check because there are now multiple valid lifecyle states
 - drop ruby 1.9.3 support
-- update sensu-plugin dep to '1.4.4'
+- update sensu-plugin dep to '~> 1.2'
 - add some tests, this pulled in webmock to mock restclient calls
 - update readme
 
