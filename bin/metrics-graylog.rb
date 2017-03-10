@@ -110,6 +110,9 @@ class MetricsGraylog < Sensu::Plugin::Metric::CLI::Graphite
     # some-hostname-here.graylog.gauges.org.graylog2.shared.journal.KafkaJournal.writtenMessages 123 1489185301
     %w( gauges counters ).each do |type|
       data[type].each do |k, v|
+        # XXX: nrh: this is a random array but I have no idea what it supposed to
+        # contain
+        next if k == 'jvm.threads.deadlocks'
         output format('%s %2f %d', "#{config[:scheme]}.#{type}.#{k}", v['value'].to_f, timestamp)
       end
     end

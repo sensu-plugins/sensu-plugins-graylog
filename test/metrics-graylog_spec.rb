@@ -53,6 +53,9 @@ describe 'MetricsGraylog', '#run' do
             'org.graylog2.shared.journal.KafkaJournal.unflushedMessages' => {
               'value' => 97.43
             },
+            'jvm.threads.deadlocks' => {
+              'value' => []
+            },
             'jvm.memory.heap.used' => {
               'value' => 885_385_736
             }
