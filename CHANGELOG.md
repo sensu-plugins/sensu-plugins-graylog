@@ -11,6 +11,20 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 - update sensu-plugin dep to '~> 1.2'
 - add some tests, this pulled in webmock to mock restclient calls
 - update readme
+- check-graylog-buffers
+  - port python to ruby
+  - py file is now a binstub for rb file
+  - add version support for pre/post 2.1.0 buffer metrics
+  - add apipath support
+  - add tests
+- metics-graylog
+  - port python to ruby
+  - py file is now a binstub for rb file
+  - add --all flag for more stats (still some work to do here)
+  - add apipath support
+  - add tests
+
+
 
 ## [0.1.0] - 2016-01-29
 ### Added
