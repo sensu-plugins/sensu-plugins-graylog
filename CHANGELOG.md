@@ -4,7 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+### Changed
+- update readme to fix script names
 
+### Added
+- add check-graylog-streams.rb to check and alert on paused streams
 
 ## [1.0.0] - 2017-03-15
 This release drops support for Ruby 1.9.3 and converts `check-graylog-buffers` and `metrics-graylog`
