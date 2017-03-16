@@ -1,10 +1,12 @@
-#Change Log
+# Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
 
+
+## [1.0.0] - 2017-03-15
 This release drops support for Ruby 1.9.3 and converts `check-graylog-buffers` and `metrics-graylog`
 from Python to Ruby. The Ruby versions were written to behave like the Python versions but as always testing
 in your environment is encouraged.
@@ -42,6 +44,7 @@ in your environment is encouraged.
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/0.1.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.0.0...HEAD
+[1.0.0]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/0.1.0...1.0.0
 [0.1.0]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/0.0.2...0.1.0
 [0.0.2]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/0.0.1...0.0.2
