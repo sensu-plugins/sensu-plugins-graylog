@@ -4,10 +4,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+
+This release drops support for Ruby 1.9.3 and converts `check-graylog-buffers` and `metrics-graylog`
+from Python to Ruby. The Ruby versions were written to behave like the Python versions but as always testing
+in your environment is encouraged.
+
 ### Changed
 - update check-graylog2-alive.rb to accept an `--apipath` argument to specify the path of the transport api
 - update -alive lifecycle check because there are now multiple valid lifecyle states
-- drop ruby 1.9.3 support
+- drop ruby 1.9.3 support; add 2.3.0
 - update sensu-plugin dep to '~> 1.2'
 - add some tests, this pulled in webmock to mock restclient calls
 - update readme
@@ -17,14 +22,12 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
   - add version support for pre/post 2.1.0 buffer metrics
   - add apipath support
   - add tests
-- metics-graylog
+- metrics-graylog
   - port python to ruby
   - py file is now a binstub for rb file
   - add --all flag for more stats (still some work to do here)
   - add apipath support
   - add tests
-
-
 
 ## [0.1.0] - 2016-01-29
 ### Added
