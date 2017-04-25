@@ -4,11 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+
+## [1.1.0] - 2017-04-25
 ### Changed
-- update readme to fix script names
+- update readme to fix script names (@nathanhruby)
 
 ### Added
-- add check-graylog-streams.rb to check and alert on paused streams
+- add check-graylog-streams.rb to check and alert on paused streams (@nathanhruby)
 
 ## [1.0.0] - 2017-03-15
 This release drops support for Ruby 1.9.3 and converts `check-graylog-buffers` and `metrics-graylog`
@@ -48,7 +50,8 @@ in your environment is encouraged.
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/0.1.0...1.0.0
 [0.1.0]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/0.0.2...0.1.0
 [0.0.2]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/0.0.1...0.0.2
