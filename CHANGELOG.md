@@ -7,6 +7,9 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 ### Added
 - Ruby 2.4.1 testing
 
+### Breaking Changes
+- Updated rest-client to 2.0.2 for Ruby 2.4.1 compatibility
+
 ## [1.1.0] - 2017-04-25
 ### Changed
 - update readme to fix script names (@nathanhruby)
