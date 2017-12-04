@@ -99,7 +99,11 @@ class MetricsGraylog < Sensu::Plugin::Metric::CLI::Graphite
   end
 
   def acquire_stats
-    resource = RestClient::Resource.new "#{config[:protocol]}://#{config[:host]}:#{config[:port]}#{config[:apipath]}/system/metrics", config[:username], config[:password]
+    resource = RestClient::Resource.new(
+      "#{config[:protocol]}://#{config[:host]}:#{config[:port]}#{config[:apipath]}/system/metrics",
+      config[:username],
+      config[:password]
+    )
     JSON.parse(resource.get)
   rescue Errno::ECONNREFUSED => e
     critical e.message

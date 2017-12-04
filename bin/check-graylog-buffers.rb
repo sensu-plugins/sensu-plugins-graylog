@@ -98,7 +98,11 @@ class CheckGraylogBuffers < Sensu::Plugin::Check::CLI
   end
 
   def call_api(path, postdata = nil)
-    resource = RestClient::Resource.new "#{config[:protocol]}://#{config[:host]}:#{config[:port]}#{config[:apipath]}#{path}", config[:username], config[:password]
+    resource = RestClient::Resource.new(
+      "#{config[:protocol]}://#{config[:host]}:#{config[:port]}#{config[:apipath]}#{path}",
+      config[:username],
+      config[:password]
+    )
     if !postdata
       JSON.parse(resource.get)
     else
