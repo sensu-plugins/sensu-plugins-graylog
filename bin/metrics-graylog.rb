@@ -38,6 +38,12 @@ require 'json'
 require 'rest-client'
 
 class MetricsGraylog < Sensu::Plugin::Metric::CLI::Graphite
+  option :protocol,
+         description: 'Protocol for connecting to Graylog',
+         short: '-proto',
+         long: '--protocol PROTOCOL',
+         default: 'http'
+
   option :host,
          description: 'Graylog host',
          short: '-h',
@@ -93,7 +99,7 @@ class MetricsGraylog < Sensu::Plugin::Metric::CLI::Graphite
   end
 
   def acquire_stats
-    resource = RestClient::Resource.new "http://#{config[:host]}:#{config[:port]}#{config[:apipath]}/system/metrics", config[:username], config[:password]
+    resource = RestClient::Resource.new "#{config[:protocol]}://#{config[:host]}:#{config[:port]}#{config[:apipath]}/system/metrics", config[:username], config[:password]
     JSON.parse(resource.get)
   rescue Errno::ECONNREFUSED => e
     critical e.message

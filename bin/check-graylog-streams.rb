@@ -26,6 +26,12 @@ require 'rest-client'
 require 'json'
 
 class CheckGraylogStreams < Sensu::Plugin::Check::CLI
+  option :protocol,
+         description: 'Protocol for connecting to Graylog',
+         short: '-proto',
+         long: '--protocol PROTOCOL',
+         default: 'http'
+
   option :username,
          short:       '-u',
          long:        '--username USERNAME',
@@ -58,7 +64,7 @@ class CheckGraylogStreams < Sensu::Plugin::Check::CLI
 
   def graylog_streams
     resource = RestClient::Resource.new(
-      "http://#{config[:host]}:#{config[:port]}#{config[:apipath]}/streams",
+      "#{config[:protocol]}://#{config[:host]}:#{config[:port]}#{config[:apipath]}/streams",
       user: config[:username],
       password: config[:password],
       timeout: 10

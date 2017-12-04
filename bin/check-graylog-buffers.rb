@@ -37,6 +37,12 @@ require 'json'
 require 'rest-client'
 
 class CheckGraylogBuffers < Sensu::Plugin::Check::CLI
+  option :protocol,
+         description: 'Protocol for connecting to Graylog',
+         short: '-proto',
+         long: '--protocol PROTOCOL',
+         default: 'http'
+
   option :host,
          description: 'Graylog host',
          short: '-h',
@@ -92,7 +98,7 @@ class CheckGraylogBuffers < Sensu::Plugin::Check::CLI
   end
 
   def call_api(path, postdata = nil)
-    resource = RestClient::Resource.new "http://#{config[:host]}:#{config[:port]}#{config[:apipath]}#{path}", config[:username], config[:password]
+    resource = RestClient::Resource.new "#{config[:protocol]}://#{config[:host]}:#{config[:port]}#{config[:apipath]}#{path}", config[:username], config[:password]
     if !postdata
       JSON.parse(resource.get)
     else
