@@ -39,7 +39,7 @@ require 'rest-client'
 class CheckGraylog2Alive < Sensu::Plugin::Check::CLI
   option :protocol,
          description: 'Protocol for connecting to Graylog',
-         short: '-proto',
+         short: '-s',
          long: '--protocol PROTOCOL',
          default: 'http'
 
