@@ -28,9 +28,9 @@ require 'json'
 class CheckGraylogStreams < Sensu::Plugin::Check::CLI
   option :protocol,
          description: 'Protocol for connecting to Graylog',
-         short: '-s',
          long: '--protocol PROTOCOL',
-         default: 'http'
+         default: 'http',
+         in: %w(http https)
 
   option :username,
          short:       '-u',

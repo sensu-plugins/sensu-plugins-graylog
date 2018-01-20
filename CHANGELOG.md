@@ -5,7 +5,7 @@ This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachang
 
 ## [Unreleased]
 ### Added
-- Add protocol option which can be passed as an argument to specify which protocol to use
+- Add `protocol` option to all scripts which can be passed as an argument to specify which protocol to use (@jothoma1)
 
 ## [1.2.0] 2017-07-13
 ### Added

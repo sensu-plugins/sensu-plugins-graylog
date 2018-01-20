@@ -40,9 +40,9 @@ require 'rest-client'
 class MetricsGraylog < Sensu::Plugin::Metric::CLI::Graphite
   option :protocol,
          description: 'Protocol for connecting to Graylog',
-         short: '-s',
          long: '--protocol PROTOCOL',
-         default: 'http'
+         default: 'http',
+         in: %w(http https)
 
   option :host,
          description: 'Graylog host',
