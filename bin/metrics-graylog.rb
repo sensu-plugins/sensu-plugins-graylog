@@ -44,6 +44,13 @@ class MetricsGraylog < Sensu::Plugin::Metric::CLI::Graphite
          default: 'http',
          in: %w(http https)
 
+  option :insecure,
+         description: 'Use insecure connections by not verifying SSL certs',
+         short: '-k',
+         long: '--insecure',
+         boolean: true,
+         default: false
+
   option :host,
          description: 'Graylog host',
          short: '-h',
@@ -94,15 +101,16 @@ class MetricsGraylog < Sensu::Plugin::Metric::CLI::Graphite
       original_output
     end
     ok
-  rescue => e
+  rescue StandardError => e
     unknown e.message
   end
 
   def acquire_stats
     resource = RestClient::Resource.new(
       "#{config[:protocol]}://#{config[:host]}:#{config[:port]}#{config[:apipath]}/system/metrics",
-      config[:username],
-      config[:password]
+      user: config[:username],
+      password: config[:password],
+      verify_ssl: !config[:insecure]
     )
     JSON.parse(resource.get)
   rescue Errno::ECONNREFUSED => e

@@ -42,6 +42,13 @@ class CheckGraylogBuffers < Sensu::Plugin::Check::CLI
          long: '--protocol PROTOCOL',
          default: 'http'
 
+  option :insecure,
+         description: 'Use insecure connections by not verifying SSL certs',
+         short: '-k',
+         long: '--insecure',
+         boolean: true,
+         default: false
+
   option :host,
          description: 'Graylog host',
          short: '-h',
@@ -92,16 +99,18 @@ class CheckGraylogBuffers < Sensu::Plugin::Check::CLI
     else
       check_210_buffers
     end
-  rescue => e
+  rescue StandardError => e
     unknown e.message
   end
 
   def call_api(path, postdata = nil)
     resource = RestClient::Resource.new(
       "#{config[:protocol]}://#{config[:host]}:#{config[:port]}#{config[:apipath]}#{path}",
-      config[:username],
-      config[:password]
+      user: config[:username],
+      password: config[:password],
+      verify_ssl: !config[:insecure]
     )
+
     if !postdata
       JSON.parse(resource.get)
     else

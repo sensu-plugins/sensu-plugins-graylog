@@ -32,6 +32,13 @@ class CheckGraylogStreams < Sensu::Plugin::Check::CLI
          default: 'http',
          in: %w(http https)
 
+  option :insecure,
+         description: 'Use insecure connections by not verifying SSL certs',
+         short: '-k',
+         long: '--insecure',
+         boolean: true,
+         default: false
+
   option :username,
          short:       '-u',
          long:        '--username USERNAME',
@@ -67,6 +74,7 @@ class CheckGraylogStreams < Sensu::Plugin::Check::CLI
       "#{config[:protocol]}://#{config[:host]}:#{config[:port]}#{config[:apipath]}/streams",
       user: config[:username],
       password: config[:password],
+      verify_ssl: !config[:insecure],
       timeout: 10
     )
     JSON.parse(resource.get, symbolize_names: true)
