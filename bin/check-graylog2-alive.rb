@@ -37,6 +37,19 @@ require 'json'
 require 'rest-client'
 
 class CheckGraylog2Alive < Sensu::Plugin::Check::CLI
+  option :protocol,
+         description: 'Protocol for connecting to Graylog',
+         long: '--protocol PROTOCOL',
+         default: 'http',
+         in: %w(http https)
+
+  option :insecure,
+         description: 'Use insecure connections by not verifying SSL certs',
+         short: '-k',
+         long: '--insecure',
+         boolean: true,
+         default: false
+
   option :host,
          description: 'Graylog2 host',
          short: '-h',
@@ -81,6 +94,7 @@ class CheckGraylog2Alive < Sensu::Plugin::Check::CLI
   end
 
   def vhost_alive?
+    protocol = config[:protocol]
     host     = config[:host]
     port     = config[:port]
     username = config[:username]
@@ -90,7 +104,12 @@ class CheckGraylog2Alive < Sensu::Plugin::Check::CLI
     lifecycle_ok = ['override lb:alive', 'running']
 
     begin
-      resource = RestClient::Resource.new "http://#{host}:#{port}#{apipath}/system", username, password
+      resource = RestClient::Resource.new(
+        "#{protocol}://#{host}:#{port}#{apipath}/system",
+        user: username,
+        password: password,
+        verify_ssl: !config[:insecure]
+      )
       # Attempt to parse response (just to trigger parse exception)
       response = JSON.parse(resource.get)
       status_text = "#{response['lifecycle']}/#{response['is_processing']}/#{response['lb_status']}"

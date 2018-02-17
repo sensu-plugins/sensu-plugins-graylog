@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
 
 ## [Unreleased]
+### Added
+- Add `protocol` option to all scripts which can be passed as an argument to specify which protocol to use (@jothoma1)
+- added `insecure` option to make SSL connections even when the CA certificate is not verified. Defaults to use secure connections only (@majormoses)
 
 ## [1.2.0] 2017-07-13
 ### Added
