@@ -79,7 +79,7 @@ class CheckGraylog2Alive < Sensu::Plugin::Check::CLI
          description: 'Graylog API path prefix',
          short: '-a',
          long: '--apipath /api',
-         default: ''
+         default: '/api'
 
   def run
     res = vhost_alive?
