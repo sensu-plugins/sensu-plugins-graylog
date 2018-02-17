@@ -1,14 +1,19 @@
 # Change Log
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-This CHANGELOG follows the format listed at [Keep A Changelog](http://keepachangelog.com/)
+This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+
+## [1.3.0] - 2018-02-16
 ### Added
 - Add `protocol` option to all scripts which can be passed as an argument to specify which protocol to use (@jothoma1)
 - added `insecure` option to make SSL connections even when the CA certificate is not verified. Defaults to use secure connections only (@majormoses)
 
-## [1.2.0] 2017-07-13
+### Changed
+- updated Changelog locations guideline (@majormoses)
+
+## [1.2.0] - 2017-07-13
 ### Added
 - Ruby 2.4.1 testing
 
@@ -60,7 +65,8 @@ in your environment is encouraged.
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/0.1.0...1.0.0
