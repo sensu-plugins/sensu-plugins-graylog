@@ -13,7 +13,7 @@ describe 'CheckGraylog2Alive', '#run' do
   end
 
   it 'returns ok' do
-    stub_request(:get, 'http://localhost:12900/system')
+    stub_request(:get, 'http://localhost:12900/api/system')
       .with(basic_auth: %w(foo bar))
       .to_return(
         status: 200,
@@ -34,7 +34,7 @@ describe 'CheckGraylog2Alive', '#run' do
   end
 
   it 'returns critical' do
-    stub_request(:get, 'http://localhost:12900/system')
+    stub_request(:get, 'http://localhost:12900/api/system')
       .with(basic_auth: %w(foo bar))
       .to_return(
         status: 200,
@@ -55,7 +55,7 @@ describe 'CheckGraylog2Alive', '#run' do
   end
 
   it 'uses apipath' do
-    stub_request(:get, 'http://localhost:12900/test/system')
+    stub_request(:get, 'http://localhost:12900/api/system')
       .with(basic_auth: %w(foo bar))
       .to_return(
         status: 200,
@@ -68,7 +68,7 @@ describe 'CheckGraylog2Alive', '#run' do
           'lb_status' => 'alive'
         }.to_json
       )
-    args = %w(--username foo --password bar --host localhost --port 12900 --apipath /test)
+    args = %w(--username foo --password bar --host localhost --port 12900 --apipath /api)
 
     check = CheckGraylog2Alive.new(args)
     expect(check).to receive(:ok).with('Graylog2 server is: running/true/alive').and_raise(SystemExit)
