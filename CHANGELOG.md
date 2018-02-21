@@ -4,6 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
+
+## [1.3.1] - 2018-02-20
 ### Fixed
 - check-graylog2-alive.rb: changed the default of `--apipath` to `/api` from an empty string. If you specified this there is no change necessary. (@majormoses)
 
@@ -67,7 +69,8 @@ in your environment is encouraged.
 ### Added
 - initial release
 
-[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.3.0...HEAD
+[Unreleased]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.3.1...HEAD
+[1.3.1]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.3.0...1.3.1
 [1.3.0]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/sensu-plugins/sensu-plugins-graylog/compare/1.0.0...1.1.0
