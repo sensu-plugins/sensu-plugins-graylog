@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins/community/blob/master/HOW_WE_CHANGELOG.md)
 
 ## [Unreleased]
-### Fixed
+### Added
 - check-graylog-buffers.rb: added CSRF protection required by graylog 2.5+. (@themysteriousx)
 
 ## [1.3.1] - 2018-02-20
