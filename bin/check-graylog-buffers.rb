@@ -117,12 +117,14 @@ class CheckGraylogBuffers < Sensu::Plugin::Check::CLI
     if !postdata
       JSON.parse(resource.get)
     else
-      JSON.parse(resource.post(
-        postdata.to_json,
-        content_type: :json,
-        accept: :json,
-        x_requested_by: "sensu-client on #{settings['client']['name']}"
-      ))
+      JSON.parse(
+        resource.post(
+          postdata.to_json,
+          content_type: :json,
+          accept: :json,
+          x_requested_by: "sensu-client on #{settings['client']['name']}"
+        )
+      )
     end
   rescue Errno::ECONNREFUSED => e
     critical e.message
