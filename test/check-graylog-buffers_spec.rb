@@ -40,7 +40,7 @@ describe 'CheckGraylogBuffers', '#run' do
     args = %w(--username foo --password bar --host localhost --port 12900)
 
     check = CheckGraylogBuffers.new(args)
-    check.instance_variable_set('@settings', {'client' => {'name' => 'sensu.example.org'}})
+    check.instance_variable_set('@settings', 'client' => { 'name' => 'sensu.example.org' })
     expect(check).to receive(:ok).with('process buffer utilization is 50.12%').and_raise(SystemExit)
     expect { check.run }.to raise_error(SystemExit)
   end
@@ -73,7 +73,7 @@ describe 'CheckGraylogBuffers', '#run' do
     args = %w(--username foo --password bar --host localhost --port 12900)
 
     check = CheckGraylogBuffers.new(args)
-    check.instance_variable_set('@settings', {'client' => {'name' => 'sensu.example.org'}})
+    check.instance_variable_set('@settings', 'client' => { 'name' => 'sensu.example.org' })
     expect(check).to receive(:critical).with('process buffer utilization is 99.99%, threshold is 90.00%').and_raise(SystemExit)
     expect { check.run }.to raise_error(SystemExit)
   end
@@ -140,7 +140,7 @@ describe 'CheckGraylogBuffers', '#run' do
     args = %w(--username foo --password bar --host localhost --port 12900)
 
     check = CheckGraylogBuffers.new(args)
-    check.instance_variable_set('@settings', {'client' => {'name' => 'sensu.example.org'}})
+    check.instance_variable_set('@settings', 'client' => { 'name' => 'sensu.example.org' })
     expect(check).to receive(:ok).with('buffer utilization is 0.00%/0.01%/0.01%').and_raise(SystemExit)
     expect { check.run }.to raise_error(SystemExit)
   end
@@ -207,7 +207,7 @@ describe 'CheckGraylogBuffers', '#run' do
     args = %w(--username foo --password bar --host localhost --port 12900)
 
     check = CheckGraylogBuffers.new(args)
-    check.instance_variable_set('@settings', {'client' => {'name' => 'sensu.example.org'}})
+    check.instance_variable_set('@settings', 'client' => { 'name' => 'sensu.example.org' })
     expect(check).to receive(:critical).with('output buffer exceeds 90.00%, buffer utilization is 0.00%/0.01%/99.18%').and_raise(SystemExit)
     expect { check.run }.to raise_error(SystemExit)
   end
