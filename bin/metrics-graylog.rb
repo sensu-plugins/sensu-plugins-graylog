@@ -112,7 +112,7 @@ class MetricsGraylog < Sensu::Plugin::Metric::CLI::Graphite
       password: config[:password],
       verify_ssl: !config[:insecure]
     )
-    JSON.parse(resource.get)
+    ::JSON.parse(resource.get)
   rescue Errno::ECONNREFUSED => e
     critical e.message
   end
