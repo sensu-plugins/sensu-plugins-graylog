@@ -5,6 +5,7 @@ This CHANGELOG follows the format listed [here](https://github.com/sensu-plugins
 
 ## [Unreleased]
 - Add build of bonsai assets pushed to github release
+- Bump bundler to version 2.1
 
 ## [1.4.0] - 2019-03-26
 ### Added
