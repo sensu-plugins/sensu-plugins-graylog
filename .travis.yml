@@ -19,17 +19,30 @@ script:
 - bundle exec rake default
 - gem build sensu-plugins-graylog.gemspec
 - gem install sensu-plugins-graylog-*.gem
+before_deploy:
+  - bash -c "[ ! -d bonsai/ ] && git clone https://github.com/sensu/sensu-go-bonsai-asset.git bonsai || echo 'bonsai/ exists, skipping git clone'"
 deploy:
-  provider: rubygems
-  api_key:
-    secure: SRB9s9jdQYmG6vAH307Cceczlz+WQVQsaL5swH/PP8JGD0E5+0P93WqAfRXn6M5PAiK+UHCwX7SQLUFHxwcTgs1sNYaQ2LK8GyeITUf5dCtEFimlR6qYr+JR7tOKFwvbfcLCAwt19459GjWAX0E7I5dsUxx1DEaRaaHIvkXyZTA=
-  gem: sensu-plugins-graylog
-  on:
-    tags: true
-    all_branches: true
-    rvm: 2.0
-    rvm: 2.1
-    rvm: 2.2
-    rvm: 2.3.0
-    rvm: 2.4.1
-    repo: sensu-plugins/sensu-plugins-graylog
+  - provider: script
+    script: bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-graylog
+    skip_cleanup: true
+    on:
+      tags: true
+      all_branches: true
+      rvm: 2.0
+      rvm: 2.1
+      rvm: 2.2
+      rvm: 2.3.0
+      rvm: 2.4.1
+  - provider: rubygems
+    api_key:
+      secure: SRB9s9jdQYmG6vAH307Cceczlz+WQVQsaL5swH/PP8JGD0E5+0P93WqAfRXn6M5PAiK+UHCwX7SQLUFHxwcTgs1sNYaQ2LK8GyeITUf5dCtEFimlR6qYr+JR7tOKFwvbfcLCAwt19459GjWAX0E7I5dsUxx1DEaRaaHIvkXyZTA=
+    gem: sensu-plugins-graylog
+    on:
+      tags: true
+      all_branches: true
+      rvm: 2.0
+      rvm: 2.1
+      rvm: 2.2
+      rvm: 2.3.0
+      rvm: 2.4.1
+      repo: sensu-plugins/sensu-plugins-graylog

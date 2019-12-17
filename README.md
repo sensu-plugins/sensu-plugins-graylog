@@ -19,7 +19,11 @@ This plugin provides availability monitoring and metrics collection for the [Gra
 
 ## Installation
 
+For sensu core:
 [Installation and Setup](http://sensu-plugins.io/docs/installation_instructions.html)
+
+For sensu go:
+[Sensu go assets](https://docs.sensu.io/sensu-go/latest/reference/assets/)
 
 ## Notes
 - If you want a limited access user for monitoring purposes please see the [Graylog FAQ](http://docs.graylog.org/en/latest/pages/faq.html#how-can-i-create-a-restricted-user-to-check-internal-graylog-metrics-in-my-monitoring-system+)
